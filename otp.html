@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+
+    }
+    body{
+        margin: auto;
+    }
+    #img{
+        margin: auto;
+        margin-bottom: 20px;
+        width: 20%;
+        align-self: center;
+    }
+     #img>img{
+         width: 100%;
+    }
+    
+    #input{
+        width: 300px;
+        background-color: white;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin:0px auto;
+        padding: 30px;
+       
+    }
+    h2{
+        font-size: 30px;
+        text-align: center;
+
+    }
+    h3{
+        text-align: center;
+        margin-top: 30px;
+    }
+    p{
+        text-align: center;
+        margin-top: 20px;
+    }
+    input{
+        width: 100%;
+        padding: 12px 10px;
+        color: rgb(235, 23, 58);
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+    button:hover {
+     background-color: #3973b6;
+     color: white;
+     font-size: 20px;
+    }
+    button{
+        width: 100%;
+        padding: 12px 10px;
+        color: black;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        resize: vertical;
+
+    }
+</style>
+
+<body>
+    <div id="img">
+        <img  src="images/logo.jpg.png" alt="">
+    </div>
+        <div id="input">
+            <h2>Welcome to Wears.in</h2>
+            <h2>Enter your OTP</h2>
+            <label>Password</label><br>
+            <input id="pass" type="password" placeholder="Enter your password"><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptatum!</p>
+            <a href="index.html"><button>Login</button></a>
+            <h3> Do not have an account? <a href="signup.html">Sign In</a></h3>
+            <h2></h2>
+        </div>
+        
+
+</body>
+</html>
+<script>
+    document.querySelector('button').addEventListener('click', myfun)
+    function myfun(event){
+
+        let x =JSON.parse(localStorage.getItem("details"))
+        let enterpass  = document.querySelector("#pass").value
+        let password = x.password;
+        
+
+        if(enterpass == 12345){
+             alert("welcome to Wears.in")
+        }
+        else{
+            alert("wrong password")
+        }
+        
+
+    };
+</script>
