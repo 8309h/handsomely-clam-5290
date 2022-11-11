@@ -30,7 +30,7 @@
     
     form{
         width: 300px;
-        background-color: white;
+        background-color: palevioletred;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         margin:0px auto;
         padding: 30px;
@@ -87,9 +87,11 @@
         <img  src="images/logo.jpg.png" alt="">
     </div>
 
-        <form>
-            <h2>Sign-Up</h2>
+       
+            
         <div id="input">
+            <form>
+            <h2>Sign-Up</h2>
             <label>Full Name</label><br>
             <input id="name" type="text" placeholder="Enter your name"><br>
             <label>E-mail</label><br>
@@ -97,10 +99,11 @@
             <label for="pwd">Password</label><br>
             <input type="password" id="password" name="pwd" minlength="6" placeholder="Enter password">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam blanditiis recusan</p>
-             <a href="login.html"><button id="butt">SIGN UP</button></a>
+             <a href="login.html"><input id="butt" type="submit" value= "SIGN UP" ></a>
             <h3>Already have an account? <a href="login.html">Log in</a></h3>
+          </form>
         </div>
-        </form>
+       
         
 
 </body>
@@ -108,32 +111,38 @@
 </html>
 
 <script>
-    let details_obj=[];
-    document.querySelector('button').addEventListener('click', myfun)
+    let details_arr=JSON.parse(localStorage.getItem("details"))||[];
+    document.querySelector('form').addEventListener('submit', myfun)
     function myfun(event){
-
+          event.preventDefault()
         let name = document.querySelector('#name').value;
         let email = document.querySelector('#email').value;
         let password = document.querySelector('#password').value;
-
+   
         if(name !== "" && email !=="" && password !==""){
-            let details_obj = {
+            let flag="yes"
+            for(let i=0;i<details_arr.length;i++){
+                if(email==details_arr[i].email){
+                    flag="no"
+                }
+            }
+            if(flag=="no"){
+                alert("email already taken❌")
+            }else{
+                let details_obj = {
                 name,email,password
             }
-            localStorage.setItem("details" ,JSON.stringify(details_obj))
+            details_arr.push(details_obj)
+            localStorage.setItem("details" ,JSON.stringify(details_arr))
+            alert("sign up successful👍")
+            }
+           
         }
         else{
-            event.preventDefault();
             alert("Please fill Deteils")
         }
     };
-    console.log(details_obj )
    
-        // document.querySelector("button").addEventListener("click",function(){
-        //     detailsArr.push(details_obj);
-        //     localStorage.setItem("cartProducts",JSON.stringify(cartItems));
-        // })
-       
 
         
 

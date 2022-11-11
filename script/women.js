@@ -419,4 +419,36 @@ let women =[
       "Description": "Women's Longsleeve Round Neck(Pack of 3)",
       "Price": "Rs.1,587"
     }
-   ]
+   ];
+   function displayCard(women){
+    document.querySelector("#container").innerHTML="";
+     women.forEach(elem => {
+
+    let div=document.createElement("div");
+
+    let imageProd = document.createElement("img");
+    imageProd.setAttribute("src",elem.Image)
+
+    let des=document.createElement("p")
+    des.innerText=elem.Description;
+
+    let title=document.createElement("p");
+    title.innerText=elem.Title;
+
+    let cost=document.createElement("h3");
+    cost.innerText=elem.Price
+
+    let btn=document.createElement("button");
+    btn.innerText="Add to card"
+
+    btn.addEventListener("click",function(){
+        cartItems.push(elem);
+        localStorage.setItem("cart_Products",JSON.stringify(men_item));
+    })
+    div.append(imageProd,des,title,cost,btn);
+
+    document.querySelector("#container").append(div);
+      
+  });
+ }
+ displayCard(women);

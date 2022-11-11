@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signin</title>
+    <title>login</title>
 </head>
 
 <style>
@@ -30,7 +30,7 @@
     
     #input{
         width: 300px;
-        background-color: white;
+        background-color:palevioletred;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         margin:0px auto;
         padding: 30px;
@@ -80,46 +80,55 @@
 </style>
 
 <body>
+    
     <div id="img">
         <img  src="images/logo.jpg.png" alt="">
     </div>
         <div id="input">
-            <h2>Welcome to Wears.in</h2>
+            <form>
             <h2>Login</h2>
-            <label>Password</label><br>
-            <input id="pass" type="password" placeholder="Enter your password"><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptatum!</p>
-            <a href="otp.html"><button>Log In</button></a>
-    
-            <h3> Do not have an account? <a href="signup.html">Sign In</a></h3>
-            <h2></h2>
+            <label>E-mail</label><br>
+            <input id="email" type="text" placeholder="Enter your email"><br>
+            <label for="pwd">Password</label><br>
+            <input type="password" id="password" name="pwd" minlength="6" placeholder="Enter password">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam blanditiis recusan</p>
+            <input id="butt" type="submit" value= "SIGN UP" >
+            <h3> Do not have account have an account? <a href="signup.html">Sign up</a></h3>
+          </form>
         </div>
+
         
 
 </body>
 </html>
 <script>
-    document.querySelector('button').addEventListener('click', myfun)
+    let details_arr=JSON.parse(localStorage.getItem("details"))||[]
+    document.querySelector('form').addEventListener('submit', myfun)
     function myfun(event){
+        event.preventDefault();  
+        let email = document.querySelector('#email').value;
+        let password = document.querySelector('#password').value;
+        if( email !=="" && password !==""){
+            let flag_email="No";
+            let pass="";
+            
+            for(let i=0;i<details_arr.length;i++){
+                if(email==details_arr[i].email){
+                    flag_email="yes";
+                    pass=details_arr[i].password;
+                    
 
-        let x =JSON.parse(localStorage.getItem("details"))
-
-        let enterpass  = document.querySelector("#pass").value
-        let password = x.password;
-        
-
-        if(enterpass == x.password){
-            let new_pass ={
-                password
-            };
-            localStorage.setItem("new_pass",JSON.stringify(new_pass))
-            alert("plese enter otp")
+                }
+            }
+           // console.log(flag_email,pass)
+            if(flag_email=="yes" && pass==password){
+              alert("login Successful continue your shoping");
+              location.href="index.html"
+            }else{
+                alert("Invalid Email or Password")
+            }
+        }else{
+            alert("please fill the valid details")
         }
-        else{
-            alert("wrong password")
-            event.preventDefault();
-        }
-        
-
-    };
+    }
 </script>

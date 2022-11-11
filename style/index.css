@@ -1,36 +1,27 @@
 #navbar{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
 }
 #navbar>:nth-child(1){
     width: 200px;
     margin: auto;
+    margin-right: 150px;
 }
 #navbar img{
     width: 100%;
    
 }
 #navbar>:nth-child(2){
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-#navbar>:nth-child(3){
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-#navbar>:nth-child(3) button{
+#navbar button{
     padding: 5px 20px ;      
     background-color: white;
     border: none;
-   
-    
-}
-#navbar>:nth-child(3) input{
-    padding: 5px 20px ;   
+    font-weight: bold;
 }
 .main>div>img{
     width: 100%;
@@ -48,6 +39,7 @@
 #mid>div img{
     width: 100%;
 }
+
 #bottom>div{
    
     margin-top: 30px;
@@ -55,6 +47,15 @@
 #bottom>div img{
     width: 100%;
 }
+#bottom>div:nth-child(1){
+    display: flex;
+    height: 400px;
+
+}
+#bottom>:nth-child(1) img{
+    width: 100%;
+}
+
 #bottom>:nth-child(2){
     display: flex;
     height: 200px;
@@ -63,11 +64,13 @@
     align-items: center;
     
 }
-#bottom>div>button{
-     background-color: white;
+#bottom button{
+     background-color: rgb(193, 234, 131);
      padding: 5px 20px;
      border: none;
-   
+     font-weight: bold;
+     font-size: 20px;
+     color: red;
 }
 h1{
     font-size: 60px;
@@ -76,11 +79,14 @@ h1{
 }
 #footer{
     display: flex;
+    margin-top: 30px;
+    background-color: antiquewhite;
     justify-content: space-between;
 
 }
 #footer>:nth-child(4){
     align-self: center;
+    margin-right: 100px;
 
 }
 #footer input{
@@ -97,15 +103,6 @@ h1{
 .slideshow-container {
   max-width: 100%;
 }
-.text {
-  color: white;
-  font-size: 25px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
 .slideshow-container>div>img{
      width: 100%;
      height: 100%;
@@ -113,3 +110,24 @@ h1{
 .slideshow-container>div{
      height: 350px;
 }
+#container{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+   
+
+}
+#container>div>img{
+    width: 100%;
+    height: 50%;
+}
+#container>div{
+    height: 550px;
+    text-align: center;
+    box-shadow: rgba(7, 7, 7, 0.35) 0px 5px 15px;
+}
+#container>div p{
+    font-weight: bold;
+}
+
