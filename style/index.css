@@ -9,7 +9,6 @@
 }
 #navbar img{
     width: 100%;
-   
 }
 #navbar>:nth-child(2){
     width: 80%;
@@ -71,6 +70,7 @@
      font-weight: bold;
      font-size: 20px;
      color: red;
+     text-decoration: underline;
 }
 h1{
     font-size: 60px;
@@ -130,4 +130,24 @@ h1{
 #container>div p{
     font-weight: bold;
 }
+#navbar button:hover {
+    color:teal;
+    font-size: 15px;
+    cursor: pointer;
+   }
 
+#container button:hover {
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#container button{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px ;
+    border-radius: 4px;
+    font-size: 15px;
+}

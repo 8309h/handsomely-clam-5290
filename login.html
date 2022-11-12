@@ -28,9 +28,9 @@
          width: 100%;
     }
     
-    #input{
+    form{
         width: 300px;
-        background-color:palevioletred;
+        background-color: white;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         margin:0px auto;
         padding: 30px;
@@ -60,23 +60,13 @@
         box-sizing: border-box;
         resize: vertical;
     }
-    button:hover {
+    input[type="submit"]:hover {
      background-color: #3973b6;
      color: white;
      font-size: 20px;
+     cursor: pointer;
     }
-    button{
-        width: 100%;
-        padding: 12px 10px;
-        color: black;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        resize: vertical;
-
-    }
+    
 </style>
 
 <body>
@@ -88,12 +78,12 @@
             <form>
             <h2>Login</h2>
             <label>E-mail</label><br>
-            <input id="email" type="text" placeholder="Enter your email"><br>
+            <input id="email" type="email" placeholder="Enter your email"><br>
             <label for="pwd">Password</label><br>
             <input type="password" id="password" name="pwd" minlength="6" placeholder="Enter password">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam blanditiis recusan</p>
-            <input id="butt" type="submit" value= "SIGN UP" >
-            <h3> Do not have account have an account? <a href="signup.html">Sign up</a></h3>
+            <input id="butt" type="submit" value= "Login ">
+            <h3> Do not have an account? <a href="signup.html">Sign up</a></h3>
           </form>
         </div>
 
