@@ -1,5 +1,6 @@
 #navbar{
     display: flex;
+    position: relative;
     justify-content: space-between;
 }
 #navbar>:nth-child(1){
@@ -83,6 +84,9 @@ h1{
     background-color: antiquewhite;
     justify-content: space-between;
 
+}
+#footer>div{
+    margin-left: 30px;
 }
 #footer>:nth-child(4){
     align-self: center;
