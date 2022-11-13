@@ -420,7 +420,20 @@ let women =[
       "Price": "1287"
     }
    ];
-   let cartItems1=JSON.parse(localStorage.getItem("cart_Products"));
+   let cartItems1=JSON.parse(localStorage.getItem("products")) || [];
+
+   function search(){
+    // console.log("someone typing inside the box")
+    let q=document.querySelector("input").value;
+    //console.log(q);
+    let newData = women.filter(function(elem){
+        return elem.Title.toLowerCase().includes(q.toLowerCase());
+    });
+    // console.log(newData)
+    displayCard(newData);
+}
+
+
    function displayCard(women){
     document.querySelector("#container").innerHTML="";
      women.forEach(elem => {
@@ -444,7 +457,7 @@ let women =[
 
     btn.addEventListener("click",function(){
         cartItems1.push(elem);
-        localStorage.setItem("cart_Products",JSON.stringify(cartItems1));
+        localStorage.setItem("products",JSON.stringify(cartItems1));
     })
     div.append(imageProd,des,title,cost,btn);
 

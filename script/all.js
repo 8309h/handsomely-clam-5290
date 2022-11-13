@@ -820,7 +820,7 @@
         "Price": "1587"
       }
      ];
-     let cartItems1=JSON.parse(localStorage.getItem("cart_Products"));
+     let cartItems1=JSON.parse(localStorage.getItem("products")) || [];
 
      function search(){
       // console.log("someone typing inside the box")
@@ -859,7 +859,7 @@
 
     btn.addEventListener("click",function(){
         cartItems1.push(elem);
-        localStorage.setItem("cart_Products",JSON.stringify(cartItems1));
+        localStorage.setItem("products",JSON.stringify(cartItems1));
     })
     div.append(imageProd,des,cate,title,cost,btn);
 

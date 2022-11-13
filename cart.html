@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="./style/page.css">
+    <style>
+        #container>div{
+            height: 400px;
+        }
+        #cont2{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows:auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #cont2>div{
+            height: 450px;
+            text-align: center;
+            box-shadow: rgba(7, 7, 7, 0.35) 0px 5px 15px;
+        }
+        #cont2 img{
+            width: 100%;
+            height: 50%;
+        }
+        #cont2>div p{
+             font-weight: bold;
+        }
+    </style>
     
 </head>
 <body>
@@ -26,77 +51,9 @@
     </div>
     <h1></h1>
     <div id="container"></div>
-    <!-- <div id="cont2"></div> -->
+    <div id="cont2"></div>
+    
     
 </body>
 </html>
-<script>
-    let cartItems1=JSON.parse(localStorage.getItem("cart_Products"));
-    
-    function displayCard(cartItems1){
-    document.querySelector("#container").innerHTML="";
-     cartItems1.forEach(elem => {
-
-    let div=document.createElement("div");
-
-    let imageProd = document.createElement("img");
-    imageProd.setAttribute("src",elem.Image)
-
-    let des=document.createElement("p")
-    des.innerText=elem.Description;
-
-    let cate = document.createElement("p")
-    cate.innerText=elem.Catogory
-
-    let title=document.createElement("p");
-    title.innerText=elem.Title;
-
-    let cost=document.createElement("h3");
-    cost.innerText= "Rs"+" "+elem.Price
-
-    div.append(imageProd,des,cate,title,cost);
-
-    document.querySelector("#container").append(div);
-      
-  });
- }
- displayCard(cartItems1);
-
-let cartItems=JSON.parse(localStorage.getItem("cartProducts"));
-       //console.log(cartItems);
-       displayCard(cartItems);
-
-       let totalCost = cartItems.reduce((acc,ele) => acc + Number(ele.price),0);
-       //console.log(totalCost)
-       document.querySelector("h1").innerText = "Total price of cart ="+" "+"Rs"+" "+ totalCost;
-
-
-     function displayCard(cartItems){
-      document.querySelector("#container").innerHTML="";
-       cartItems.forEach(elem => {
-  
-      let div=document.createElement("div");
-  
-      let imageProd = document.createElement("img");
-      imageProd.setAttribute("src",elem.image)
-  
-      let des=document.createElement("p")
-      des.innerText=elem.description
-  
-      let cate = document.createElement("p")
-      cate.innerText=elem.gender
-  
-      let title=document.createElement("p");
-      title.innerText=elem.title;
-  
-      let cost=document.createElement("h3");
-      cost.innerText="Rs"+" "+elem.price
-  
-      div.append(imageProd,des,cate,title,cost);
-  
-      document.querySelector("#container").append(div);
-        
-    });
-   }
-   displayCard(cartItems);
-</script>
+<script src="./script/cart.js"></script>

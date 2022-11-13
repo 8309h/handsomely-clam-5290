@@ -264,9 +264,9 @@
       btn.innerText="Add to card"
   
       btn.addEventListener("click",function(){
-        cartItems.push(elem);
-        localStorage.setItem("cartProducts",JSON.stringify(cartItems));
-    })
+          cartItems.push(elem);
+          localStorage.setItem("cartProducts",JSON.stringify(cartItems));
+      })
       div.append(imageProd,des,cate,title,cost,btn);
   
       document.querySelector("#container").append(div);

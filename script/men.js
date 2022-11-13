@@ -360,7 +360,18 @@ let men =[
       "Price": "1999"
     }
    ];
-   let cartItems1=JSON.parse(localStorage.getItem("cart_Products"));
+   let cartItems1=JSON.parse(localStorage.getItem("products")) || [];
+
+   function search(){
+    // console.log("someone typing inside the box")
+    let q=document.querySelector("input").value;
+    //console.log(q);
+    let newData = men.filter(function(elem){
+        return elem.Title.toLowerCase().includes(q.toLowerCase());
+    });
+    // console.log(newData)
+    displayCard(newData);
+}
     
   
    function displayCard(men){
@@ -385,8 +396,8 @@ let men =[
     btn.innerText="Add to card"
 
     btn.addEventListener("click",function(){
-        cartItems1.push(elem);
-        localStorage.setItem("cart_Products",JSON.stringify(cartItems1));
+      cartItems1.push(elem);
+      localStorage.setItem("products",JSON.stringify(cartItems1));
     })
     div.append(imageProd,des,title,cost,btn);
 
